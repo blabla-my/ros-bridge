@@ -606,7 +606,8 @@ def main():
                     "Loading opendrive world from file '{}'".format(parameters["town"]))
                 with open(parameters["town"]) as od_file:
                     data = od_file.read()
-                carla_world = carla_client.generate_opendrive_world(str(data))
+                carla_world = carla_client.generate_opendrive_world(str(data),
+                                                                    parameters=(2.0, 50.0, 0.0, 0.6, true, true))
             else:
                 if carla_world.get_map().name != parameters["town"]:
                     rospy.loginfo("Loading town '{}' (previous: '{}').".format(
